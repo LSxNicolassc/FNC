@@ -75,7 +75,7 @@ def Tseitin(A, letrasProposicionalesA):
             pila = pila[:len(pila)-4]
             i -=- 1
             atomo = letrasProposicionalesB[i]
-            l.append(atomo + "=" + v + u + w)
+            l.append(atomo + "=" + '(' + v + u + w + ')')
             s = atomo
 
         else:
@@ -95,7 +95,7 @@ def Tseitin(A, letrasProposicionalesA):
 
     for x in l:
         y = enFNC(x)
-        B + = "Y" + y
+        B += "Y" + y
 
     B = atomo + B
 
@@ -108,7 +108,19 @@ def Tseitin(A, letrasProposicionalesA):
 # Se asume que cada literal es un solo caracter
 def Clausula(C):
 
-    #  IMPLEMENTAR AQUI ALGORITMO CLAUSULA
+    L = [] #lista de literales
+    while(len(C) > 0):
+        s = C[0]
+
+        if (s == '-'):
+            L-append(s + C[1])
+            C = C[3:]
+
+        else:
+            L.append(s)
+            C = C[2:]
+
+    return L
     pass
 
 # Algoritmo para obtencion de forma clausal
@@ -117,4 +129,5 @@ def Clausula(C):
 def formaClausal(A):
 
     #  IMPLEMENTAR AQUI ALGORITMO FORMA CLAUSAL
+
     pass
