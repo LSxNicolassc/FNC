@@ -1,2 +1,0 @@
-Repositorio 
-Dave and Nico
